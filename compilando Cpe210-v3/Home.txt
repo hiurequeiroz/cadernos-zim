@@ -1,0 +1,66 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-10-01T14:32:17-03:00
+
+===== Compilando um firmware para cpe210-v3 =====
+Created segunda 01 outubro 2018
+
+o Cpe210-v3 não tem suporte dos desenvolvedores oficiais do OpenWrt/Lede. E no [[~/Notebooks/redesmesh/libremesh.txt|Libremesh]] todas as maneiras de compilar documentadas são para modelos suportados para o OpenWrt/Lede. Esse documento tem o objetivo de documentar a jornada de descobrir como compilar um firmware para um modelo não suportado pelo OpenWrt/Lede.
+
+Como meu conhecimento é muito pouco ou quase nenhum esse rascunho vai começar nos passos mais elementares nessa jornada, assim é preciso entender tudo desde o mais básico na arte de compilar openwrt, alguns links: 
+1. https://openwrt.org/docs/guide-developer/start
+2. https://openwrt.org/docs/guide-developer/quickstart-build-images
+3. https://openwrt.org/docs/guide-user/additional-software/beginners-build-guide
+4. https://openwrt.org/docs/guide-developer/build-system/install-buildsystem
+5. https://openwrt.org/docs/guide-user/additional-software/imagebuilder
+6. https://openwrt.org/docs/guide-developer/build-system/use-buildsystem
+7. https://openwrt.org/docs/guide-developer/build-system/use-patches-with-buildsystem
+8. https://github.com/openwrt/openwrt	
+
+Lendo tudo isso, tem algumas coisas importantes a se concluir para prosseguir:
+1. Não é possível fazer isso pelo ImageBuilder pois ele só vai funcionar para imagens pré-compiladas
+2. Todas as dependências devem estar [[https://openwrt.org/docs/guide-developer/build-system/install-buildsystem#table_of_known_prerequisites|rigorosamente satisfeitas]]. 
+
+Sendo assim vamos fazer 
+Primeiro fiz um clone do repositório oficial do openwrt
+
+{{{code: lang="sh" linenumbers="False"
+$ git clone https://github.com/openwrt/openwrt.git
+}}}
+
+
+Depois fiz as modificações necessárias para compilar um firmware para cpe210-v3 com segue aqui
+[[https://github.com/openwrt/openwrt/pull/1279/files|h]]ttps://github.com/openwrt/openwrt/pull/1279/files
+
+Feito isso acresentei os seguintes repositórios para o feed.conf
+
+{{{code: lang="sh" linenumbers="False"
+cp feeds.conf.default feeds.conf.default.local
+echo "src-git libremesh https://github.com/libremesh/lime-packages.git" >> feeds.conf
+echo "src-git libremap https://github.com/libremap/libremap-agent-openwrt.git" >> feeds.conf
+echo "src-git limeui https://github.com/libremesh/lime-package-ui.git" >> feeds.conf
+}}}
+
+Para atualizar os pacotes fiz:
+
+{{{code: lang="sh" linenumbers="False"
+scripts/feeds update -a
+scripts/feeds install -a
+}}}
+
+
+E então para adicionar manualmente os pacotes executei:
+
+{{{code: lang="sh" linenumbers="False"
+make menuconfig
+}}}
+
+Aqui foi possivel encontrar em target o cpe210-v3. Segui a sugestão do git do libremesh () que sugere destacar o pacotednsmasq em Base system e selecionar dnsmasq-dhcpv6 na mesma seção. E também destacar odhcpd na seção Network. Selecionei também o pacote lime-full na seção LiMe.
+{{~/Imagens/Captura de tela de 2018-10-05 08-43-52.png?width=600}}
+
+Salvei tudo e então rodei:
+{{{code: lang="sh" linenumbers="False"
+make -j1 V=s
+}}}
+
+E compulou-se uma imagem para testar.

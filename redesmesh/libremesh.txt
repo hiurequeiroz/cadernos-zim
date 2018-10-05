@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-09-28T15:01:29-03:00
+
+====== Libremesh ======
+Created sexta 28 setembro 2018
+
+Libremesh é uma estrutura modular para criação de firmwares baseados em LEDE/OpenWrt para criar redes em malha sem fio. O projeto do libremesh inclui o desenvolvimento de várias ferramentas. O firmware ( a parte principal) permite a implementação simples de redes de malha multi-rádio, auto configuráveis e ainda versáteis.
+Basicamente a arquitetura da rede desenhada pelo libremesh é baseada em duas [[camadas]]:
+
+===== Nuvem de camada 2 =====
+
+A nuvem de camada 2 usa o protocolo de roteamento BATMAM-ADV. B.A.T.M.A.N. vem do acrônimo em inglês e significa Better Approach To Mobile Ad-hoc Networking, trata-se de um protocolo de roteamento para redes WLAN (redes locais sem fio) do tipo ad-hoc. O que na versão atual do libremesh estamos migrando para o protocolo mesh.
+B.A.T.M.A.N. advanced é um protocolo de roteamento mesh que roda no espaço do kernel. Mesmo se a topologia da rede é feita de muitos nós e múltiplos saltos, ela será resumida a um domínio de colisão de camada 2 única. 
+Portanto, da perspectiva do usuário, a malha inteira será parecida com uma única LAN. Essa arquitetura é muito interessante para fins de roaming, portanto, as conexões TCP e UDP não são perdidas, mesmo quando se está mudando e mudando de AP.
+
+===== Rede de camada 3 =====
+
+Toda a camada de rede 3 usa por padrão o protocolo de roteamento BMX. Usamos a versão BMX6 (atualmente está na versão BMX7), que é um protocolo de roteamento dinâmico nativo em IPV6, que oferece que oferece recursos muito avançados e uma pequena sobrecarga na rede (graças a estratégia de vetor-distância e um conjunto de otimizações). A versão 7 tem, além disso, extensões de roteamento de segurança.
+

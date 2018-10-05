@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-09-28T15:14:59-03:00
+
+====== camadas ======
+Created sexta 28 setembro 2018
+
+O conceito de layers (camadas de software) separa os módulos de um software em camadas, cada uma com sua contribuição para a execução do software. As camadas separam o código-fonte seguindo uma forma lógica, podendo gerar pacotes físicos, mas não implicam necessariamente em separação física, assim as camadas podem compartilhar CPU e até processos iguais.
+
+Este modelo é dividido em sete camadas hierárquicas, ou seja, cada camada usa as funções da própria ou da camada anterior, para esconder a complexidade e transparecer de modo simples as operações ao usuário, seja ele um programa ou uma outra camada.
+
+As camadas são empilhadas na seguinte ordem:
+
+7 - Camada de aplicação;
+6 - Camada de apresentação;
+5 - Camada de sessão;
+4 - Camada de transporte;
+3 - Camada de rede;
+2 - Camada de enlace de dados;
+1 - Camada física.
+
+Retirado de [[https://pt.wikipedia.org/wiki/Modelo_OSI|wikipedia]]
