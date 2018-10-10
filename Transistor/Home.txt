@@ -7,25 +7,34 @@ Created terça 09 outubro 2018
 
 Esse caderno se destina ao estudo básico de transistores.
 
-Estou fazendo um circuito básico de como utilizar um LDR associado a um transistor para ligar e desligar um motor de um carrinho pela luz. Não sei no que vai dar mas vou tentar inicialmente esse cirtuito:
+Estou fazendo um circuito básico de como utilizar um LDR associado a um transistor para ligar e desligar um motor de um carrinho pela luz. Não sei no que vai dar mas vou tentar inicialmente esse circuito:
 
 {{../transistor-circuit-with-ldr.gif}}
-Esse circuito não funcionou muito bem, depois de muito teste e estudo de tranisistor eu cheguei no seguinte cricuito para o motorzinho
+Esse circuito não funcionou muito bem, depois de muito teste e estudo de transistor eu cheguei no seguinte circuito para o motorzinho
 
-COLOCAR AQUI O MEU CIRUCUITO
+{{../esquema/ldr-motor-bc548-semfundo.png}}
 
-http://www.audioacustica.com.br/exemplos/Valores_Resistores/Calculadora_Ohms_Resistor.html#
-http://www.vandertronic.com/wp-content/uploads/2015/07/esquema_robo_segue_luz.png
+
 
 
 
 Depois que coloquei um motor mais forte o transistor queimou, assim decidi mudar de componente.
-Usei o tip 120 usando o seguinte cirtuito
+Usei o Tip120 ([[../TIP120.pdf|datasheet]]) usando o seguinte circuito:
 
-{{../transistor-switch.jpg}}
-adicionei um capacitor ceramico em paraleo com o motor para protege-lo
+{{../esquema/ldr-motor-tip120-semfundo2.png}}
+
+adicionei um capacitor cerâmico em paralelo com o motor para protege-lo.
 
 
 capacitores 
-http://www.csgnetwork.com/capcodeinfo.html
 
+
+
+Como ficou
+{{../tip120-motor-ldr-600.jpg}}
+
+
+Referências:
+Código de cores dos resistores - http://www.audioacustica.com.br/exemplos/Valores_Resistores/Calculadora_Ohms_Resistor.html#
+Carinho de referencia - http://www.vandertronic.com/wp-content/uploads/2015/07/esquema_robo_segue_luz.png
+Capacitores - http://www.csgnetwork.com/capcodeinfo.html
