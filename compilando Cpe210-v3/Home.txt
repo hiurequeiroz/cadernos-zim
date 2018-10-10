@@ -15,7 +15,8 @@ Como meu conhecimento é muito pouco ou quase nenhum esse rascunho vai começar 
 5. https://openwrt.org/docs/guide-user/additional-software/imagebuilder
 6. https://openwrt.org/docs/guide-developer/build-system/use-buildsystem
 7. https://openwrt.org/docs/guide-developer/build-system/use-patches-with-buildsystem
-8. https://github.com/openwrt/openwrt	
+8. https://wiki.openwrt.org/doc/howto/build
+9. https://github.com/openwrt/openwrt	
 
 Lendo tudo isso, tem algumas coisas importantes a se concluir para prosseguir:
 1. Não é possível fazer isso pelo ImageBuilder pois ele só vai funcionar para imagens pré-compiladas
@@ -25,7 +26,7 @@ Sendo assim vamos fazer
 Primeiro fiz um clone do repositório oficial do openwrt
 
 {{{code: lang="sh" linenumbers="False"
-$ git clone https://github.com/openwrt/openwrt.git
+git clone https://github.com/openwrt/openwrt.git
 }}}
 
 
@@ -38,7 +39,7 @@ Feito isso acresentei os seguintes repositórios para o feed.conf
 cp feeds.conf.default feeds.conf.default.local
 echo "src-git libremesh https://github.com/libremesh/lime-packages.git" >> feeds.conf
 echo "src-git libremap https://github.com/libremap/libremap-agent-openwrt.git" >> feeds.conf
-echo "src-git limeui https://github.com/libremesh/lime-package-ui.git" >> feeds.conf
+echo "src-git limeui https://github.com/libremesh/lime-packages-ui.git" >> feeds.conf
 }}}
 
 Para atualizar os pacotes fiz:
@@ -58,9 +59,25 @@ make menuconfig
 Aqui foi possivel encontrar em target o cpe210-v3. Segui a sugestão do git do libremesh () que sugere destacar o pacotednsmasq em Base system e selecionar dnsmasq-dhcpv6 na mesma seção. E também destacar odhcpd na seção Network. Selecionei também o pacote lime-full na seção LiMe.
 {{~/Imagens/Captura de tela de 2018-10-05 08-43-52.png?width=600}}
 
-Salvei tudo e então rodei:
+Depois de salvar, é importante sar o comando 
+
+{{{code: lang="sh" linenumbers="False"
+make download
+}}}
+
+Isso vai fazer com que você baixe todos as fontes antes de compilar, isso é importante caso você use mútlipos cores para compilar. Se não fizer isso provávelmente sua compilação falhe.
+
+E então rodei:
 {{{code: lang="sh" linenumbers="False"
 make -j1 V=s
 }}}
 
 E compulou-se uma imagem para testar.
+
+
+Dicas:
+Caso você encontre erro na compilação uma sacada é usar a seguinte linha decomando para encontrar o erro:
+
+{{{code: lang="sh" linenumbers="False"
+make V=s 2>&1 | tee build.log | grep -i '[^_-"a-z]error[^_-.a-z]' 
+}}}

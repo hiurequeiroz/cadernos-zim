@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-10-09T08:48:05-03:00
+
+====== Home ======
+Created terça 09 outubro 2018
+
+Esse caderno se destina ao estudo básico de transistores.
+
+Estou fazendo um circuito básico de como utilizar um LDR associado a um transistor para ligar e desligar um motor de um carrinho pela luz. Não sei no que vai dar mas vou tentar inicialmente esse cirtuito:
+
+{{../transistor-circuit-with-ldr.gif}}
+Esse circuito não funcionou muito bem, depois de muito teste e estudo de tranisistor eu cheguei no seguinte cricuito para o motorzinho
+
+COLOCAR AQUI O MEU CIRUCUITO
+
+http://www.audioacustica.com.br/exemplos/Valores_Resistores/Calculadora_Ohms_Resistor.html#
+http://www.vandertronic.com/wp-content/uploads/2015/07/esquema_robo_segue_luz.png
+
+
+
+Depois que coloquei um motor mais forte o transistor queimou, assim decidi mudar de componente.
+Usei o tip 120 usando o seguinte cirtuito
+
+{{../transistor-switch.jpg}}
+adicionei um capacitor ceramico em paraleo com o motor para protege-lo
+
+
+capacitores 
+http://www.csgnetwork.com/capcodeinfo.html
+
