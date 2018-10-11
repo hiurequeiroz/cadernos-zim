@@ -13,11 +13,6 @@ Estou fazendo um circuito básico de como utilizar um LDR associado a um transis
 Esse circuito não funcionou muito bem, depois de muito teste e estudo de transistor eu cheguei no seguinte circuito para o motorzinho
 
 {{../esquema/ldr-motor-bc548-semfundo.png}}
-
-
-
-
-
 Depois que coloquei um motor mais forte o transistor queimou, assim decidi mudar de componente.
 Usei o Tip120 ([[../TIP120.pdf|datasheet]]) usando o seguinte circuito:
 
@@ -35,6 +30,16 @@ Como ficou
 
 
 Referências:
-Código de cores dos resistores - http://www.audioacustica.com.br/exemplos/Valores_Resistores/Calculadora_Ohms_Resistor.html#
-Carinho de referencia - http://www.vandertronic.com/wp-content/uploads/2015/07/esquema_robo_segue_luz.png
-Capacitores - http://www.csgnetwork.com/capcodeinfo.html
+
+Transistores 
+- https://arduinolivre.wordpress.com/2013/01/21/transistor-motor-dc-arduino-parte-12v-com-potenciometro-e-leds-indicadores-de-velocidade/
+- https://www.build-electronic-circuits.com/ldr-circuit-diagram/
+
+Código de cores dos resistores 
+- http://www.audioacustica.com.br/exemplos/Valores_Resistores/Calculadora_Ohms_Resistor.html#
+
+Carinho de referencia 
+- http://www.vandertronic.com/wp-content/uploads/2015/07/esquema_robo_segue_luz.png
+
+Capacitores 
+- http://www.csgnetwork.com/capcodeinfo.html
