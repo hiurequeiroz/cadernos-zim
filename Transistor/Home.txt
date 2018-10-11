@@ -7,26 +7,22 @@ Created terça 09 outubro 2018
 
 Esse caderno se destina ao estudo básico de transistores.
 
-Estou fazendo um circuito básico de como utilizar um LDR associado a um transistor para ligar e desligar um motor de um carrinho pela luz. Não sei no que vai dar mas vou tentar inicialmente esse circuito:
+Estou fazendo um circuito básico de como utilizar um LDR associado a um transistor bc548 ([[../pdf/bc548-datasheet.pdf|datasheet]]) para ligar e desligar um motor de um carrinho pela luz. Não sei no que vai dar mas vou tentar inicialmente esse circuito:
 
-{{../transistor-circuit-with-ldr.gif}}
+{{../img/transistor-circuit-with-ldr.gif}}
 Esse circuito não funcionou muito bem, depois de muito teste e estudo de transistor eu cheguei no seguinte circuito para o motorzinho
 
 {{../esquema/ldr-motor-bc548-semfundo.png}}
 Depois que coloquei um motor mais forte o transistor queimou, assim decidi mudar de componente.
-Usei o Tip120 ([[../TIP120.pdf|datasheet]]) usando o seguinte circuito:
+Usei o Tip120 ([[../pdf/TIP120.pdf|datasheet]]) usando o seguinte circuito:
 
 {{../esquema/ldr-motor-tip120-semfundo2.png}}
 
 adicionei um capacitor cerâmico em paralelo com o motor para protege-lo.
 
 
-capacitores 
-
-
-
-Como ficou
-{{../tip120-motor-ldr-600.jpg}}
+Como ficou:
+{{../img/tip120-motor-ldr-600.jpg}}
 
 
 Referências:
