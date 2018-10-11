@@ -9,23 +9,25 @@ Creation-Date: 2018-09-28T08:41:01-03:00
 
 **Redes** são grupos de dispositivos conectados que trocam informações ou mensagens de um lugar para outro.
 A maioria das redes funcionam com uma **estrutura **hierárquica onde os usuários se conectam a outros usuários através de um ponto central. Ou seja sempre quando um usuário troca informação com outro ele necessariamente deve passar por esse ponto central.
-														{{~/Imagens/centralizada.png}}
+														{{../img/centralizada.png}}
 Em uma **rede em malha** (ou redes mesh), os pacotes de informação tem muitos caminhos para seguir utilizando um protocolo especial para isso de maneira descentralizada.
 
-														{{~/Imagens/descentralizada.png}}
+														{{../img/descentralizada.png}}
 **Roteadores** são dispositivos que determinam como as informações se movem através da rede. Por padrão esses dispositivos, como os que você tem em casa, conversam com computadores e com smartphones, mas não conversam facilmente uns com os outros.
-													{{~/Imagens/roteadores.png}}
+
+													{{../img/roteadores.png}}
+													
 **Roteadores em modo mesh **podem conversar dinamicamente uns com os outros, permitindo uma maior flexibilidade da rota de trafico com a internet. Não é comum que um dispositivo opere em modo mesh, mas com um sistema operacional certo, roteadores, celulares e computadores podem fazer mesh. 
 Podemos construir redes mesh instalando um software livre "fritando" com ajuda do [[Libremesh]] e então conectando-os com outros roteadores vizinhos.
-													{{~/Imagens/meshrouters.png}}
+													{{../img/meshrouters.png}}
 
 
 ===== Vantagens das Redes em Malha =====
 
 A vantagem das redes mesh são muitas, mas uma das mais importantes é que por ela ser descentralizada qualquer ponto da rede pode ser o ponto central de internet, ou a rede pode não ter um único ponto central para internet.
-											{{~/Imagens/redemesh.png}}
+											{{../img/redemesh.png}}
 Qualquer dispositivo da rede mesh pode ser a borda de conexão entra a sua rede e a rede mundial de computadores. Isso torna a rede muito mais flexível e dinâmica se ajustando constantemente as condições do momento. Automaticamente pode reconhecer novos nós (chamamos cada ponto de uma rede em malha de nó) adaptando novas rotas para os pacotes, sempre escolhendo a melhor rota. Quando tem algum problema em algum ponto e ele cai, a rede automaticamente reconhece isso e readapta a rede as novas configurações.
-											{{~/Imagens/boaredemesh.png}}
+											{{../img/boaredemesh.png}}
 											
 
 
