@@ -25,6 +25,13 @@ Como ficou:
 {{../img/tip120-motor-ldr-600.jpg}}
 
 
+Variações do dia da oficina
+
+
+
+{{../img/ldr-led-bc548b.png}}
+
+
 Referências:
 
 Transistores 

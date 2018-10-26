@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-10-26T07:32:21-03:00
+
+====== sistema fotovoltaico ======
+Created sexta 26 outubro 2018
+
+Com uma [[https://www.neosolar.com.br/loja/painel-solar-fotovoltaico-canadian-csi-cs6p-255p-255wp.html|painel de 255wp,]] [[https://www.neosolar.com.br/loja/controlador-de-carga-mppt-epsolar-tracer-2210a-20a-12-24v.html|controlador de carga mppt de 20A]] e uma [[https://www.neosolar.com.br/loja/bateria-estacionaria-freedom-df3000-185ah-170ah.html|bateria]] de 170Ah.
+{{../img/sistemaFV.png}}
+

@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-10-26T07:27:41-03:00
+
+====== Home ======
+Created sexta 26 outubro 2018
+
+===== Contexto =====
+
+A ideia aqui foi resolver problemas nas conexões em sistemas fotovoltaicos para fazer enlaces em lugares remotos.
+Utilizamos aqui um [[sistema fotovoltaico]] simples com saída de 12V sem utilizar inversores de corrente alternada pois torna o sistema muito caro e com muita perda de energia. Uma vez que os equipamentos já funcionam a corrente continua entre 12V e 24V. 
+Portanto para ligar os equipamentos em um [[sistema fotovoltaico]] abrimos mão do [[PoE]] que vem de fábrica pois esse [[PoE]] converte de 110/220V para 12V ou 24V e ligamos os equipamentos direto no saída do controlador de carga. Para equipamentos 24V utilizamos um boost converter para elevar a tensão de 12V para 24V.
+Mas precisamos de um [[PoE]] que tenha mais de uma saída pois normalmente em uma estação como essa precisamos ligar mais de um equipamento.
+
+===== Solução =====
+
+Além de ser caro é dificil encontrar [[PoE]] com mais de uma saída, então a solução aqui apresentada é a utilização de um roteador bem velho d-link como [[PoE]] ao invés de comprar um. 
+{{../img/dlink.jpg?width=600}}
+
+A ideia foi simplesmente pegar a placa e soldar os rj45 tudo em paralelo para o //boost converter, //
+{{../img/placa.jpg}}
+
+mas para isso foi necessário cortar a placa
+
+{{../img/corte.jpg}}
+
+depois soldar todos os negativos juntos e todos os positivos juntos, porém as conexões da entrada ficaram separadas para entrar no boost:
+
+{{../img/solda.jpg}}
+
+e então conectar a entrada no boost e a saída do boost nos rj45:
+
+{{../img/boost.jpg?width=600}}
+
+
