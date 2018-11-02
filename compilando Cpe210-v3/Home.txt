@@ -23,20 +23,18 @@ Lendo tudo isso, tem algumas coisas importantes a se concluir para prosseguir:
 2. Todas as dependências devem estar [[https://openwrt.org/docs/guide-developer/build-system/install-buildsystem#table_of_known_prerequisites|rigorosamente satisfeitas]]. 
 
 Sendo assim vamos fazer 
-Primeiro fiz um clone do repositório oficial do openwrt
+Primeiro fiz um clone do repositório do openwrt já com as alterações para o cpe210-v3
 
 {{{code: lang="sh" linenumbers="False"
-git clone https://github.com/openwrt/openwrt.git
+git clone -b CPE210-v3-PR --single-branch https://github.com/robimarko/openwrt.git
 }}}
 
-
-Depois fiz as modificações necessárias para compilar um firmware para cpe210-v3 com segue aqui
-[[https://github.com/openwrt/openwrt/pull/1279/files|h]]ttps://github.com/openwrt/openwrt/pull/1279/files
 
 Feito isso acresentei os seguintes repositórios para o feed.conf
 
 {{{code: lang="sh" linenumbers="False"
 cp feeds.conf.default feeds.conf.default.local
+cp feeds.conf.default feeds.conf
 echo "src-git libremesh https://github.com/libremesh/lime-packages.git" >> feeds.conf
 echo "src-git libremap https://github.com/libremap/libremap-agent-openwrt.git" >> feeds.conf
 echo "src-git limeui https://github.com/libremesh/lime-packages-ui.git" >> feeds.conf
@@ -56,8 +54,8 @@ E então para adicionar manualmente os pacotes executei:
 make menuconfig
 }}}
 
-Aqui foi possivel encontrar em target o cpe210-v3. Segui a sugestão do git do libremesh () que sugere destacar o pacotednsmasq em Base system e selecionar dnsmasq-dhcpv6 na mesma seção. E também destacar odhcpd na seção Network. Selecionei também o pacote lime-full na seção LiMe.
-{{~/Imagens/Captura de tela de 2018-10-05 08-43-52.png?width=600}}
+Aqui foi possivel encontrar em target o cpe210-v3. Segui a sugestão do git do libremesh () que sugere destacar o pacotednsmasq em Base system e selecionar dnsmasq-dhcpv6 na mesma seção. Selecionei também o pacote lime-full na seção [[LiMe]] > collections.
+{{../menuconfig.jpg}}
 
 Depois de salvar, é importante sar o comando 
 
