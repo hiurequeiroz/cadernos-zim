@@ -1,0 +1,48 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-13T09:35:40-02:00
+
+====== Home ======
+Created terça 13 novembro 2018
+
+
+Comecei a estudar como fazer um sistema de acesso remoto para podermos dar apoio técnoco as redes comunitárias
+
+O primeiro passo foi utilizar uma maneira muito foda de compartilhar a minha internet do computador com o router, eu precisei instalar o network manager pois na minha versão do debian meu gerenciador de redes não tinha a opção de compartilhar a internet, então fiz
+
+{{{code: lang="sh" linenumbers="False"
+sudo apt install network-manager
+}}}
+
+e fiz a seguintes configs
+{{../Captura de tela de 2018-11-13 09-39-26.png}}
+
+{{../Captura de tela de 2018-11-13 09-39-38.png}}
+
+depois é só conectar o router pelo cabo na porta wan vai aparecer uma nova conexão por cabo e escolher a conexão pelo nome que escolheu no meu caso compartilhado.
+Para ver o que ta acontecendo pode dar o seguinte comando
+{{{code: lang="sh" linenumbers="False"
+sudo tail -F /var/log/syslog
+}}}
+
+Para entrar no router não é possível entrar por ssh no ipv4 pois o firewall do libremesh não permite conexão entrante pela porta wan, então tem que descobrir o ipv6 que permite conexão entrante por ipv6, para isso faça:
+
+{{{code: lang="sh" linenumbers="False"
+ping6 ff02::1%enp0s25
+}}}
+
+onde a parte que ta enp0s25 é minha interface, você precisa ver qual a sua interface (que depende da sua placa de rede) para colocar no lugar.
+o resultado disso vai ser algo assim
+
+{{{code: lang="sh" linenumbers="False"
+PING ff02::1%enp0s25(ff02::1%enp0s25) 56 data bytes
+64 bytes from fe80::91ed:d4eb:bf61:24a%enp0s25: icmp_seq=1 ttl=64 time=0.080 ms
+64 bytes from fe80::6670:2ff:fe4e:c7c4%enp0s25: icmp_seq=1 ttl=64 time=1.00 ms (DUP!)
+}}}
+
+no caso apareceram duas conexões uma mais rápida de 0.080 ms e outra de 1.00 ms no caso a última se refere ao endereço ipv6 do router. 
+Para entrar no router faça:
+{{{code: lang="sh" linenumbers="False"
+ssh root@fe80::6670:2ff:fe4e:c7c4%enp0s25
+}}}
+

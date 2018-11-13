@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-10T13:05:37-02:00
+
+====== Home ======
+Created sábado 10 novembro 2018
+
+====== Relatório Cabine tecnomistica ======
+
+O objetivo aqui é relatar uma pesquisa sobre as tecnologias que podem ser empregadas na cabine para criar uma automatização que traca um tom futurista para ela. Ao mesmo tempo esse material servirá de base para as oficinas que estamos planejando.
+Está divido nos seguintes temas:
+* [[Arduíno]]
+* [[Esp32]]
+* [[Motor de Passo]]
+* [[Fita Led endereçável]]
+* [[VR com ESP32]]
+
+
