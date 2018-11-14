@@ -5,14 +5,19 @@ Creation-Date: 2018-11-14T12:14:41-02:00
 ====== luci ======
 Created quarta 14 novembro 2018
 
-Abra a pagina da interface Luci do seu roteador o endereço [[thisnode.info]] como administrador, no final da página você encontra a opção administration:
+Abra la página de la interfaz Luci de su router la dirección [[thisnode.info]] como administrador,al final de la página se encuentra la opción administration:
 
 {{./screenshot_2018-11-14-121857.png}}
 
-Insira o usuraio root e a respectiva senha.
+Se inicia el usuario root y su contraseña.
 
-Vamos instalar dois módulos, um se chama "zerotier" e outro "luci-app-commands", para isso vá em System > Software
- 
+, para isso vá em System > Software
+
+{{./Captura de tela de 2018-11-14 12-23-07.png}}
+
+Então vá em listsupdates
+
+
 Vai ter algo assim:
 {{./screenshot_2018-11-14-123614.png}}
 
@@ -21,7 +26,7 @@ Em "Download and install package" coloque "zerotier"
 
 {{./screenshot_2018-11-14-125050.png}}
 
-Em Download and install package coloque "luci-app-commands" e dê ok{{./screenshot_2018-11-14-123945.png}}
+Em Download and install package coloque luci-app-commands e dê ok{{./screenshot_2018-11-14-123945.png}}
 
 
 Terá a seguinte saida:
