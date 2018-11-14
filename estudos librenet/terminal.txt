@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-14T12:04:45-02:00
+
+====== terminal ======
+Created quarta 14 novembro 2018
+
+manual https://www.zerotier.com/manual.shtml
+Pelo terminal temos:
+
+instalamos o zerotier no roteador
+{{{code: lang="sh" linenumbers="False"
+opkg update
+opkg install zerotier
+}}}
+
+depois que instalar ele leva um tempo para acessar a rede, o que pode ser conferido com :
+{{{code: lang="sh" linenumbers="False"
+zerotier-cli listnetworks
+}}}
+
+Vai surgir uma interface só para o zerotier chamada zt0, 
+
+{{{code: lang="sh" linenumbers="False"
+root@LiMe-4ec7c1:~# ip a s zt0
+23: zt0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 2800 qdisc fq_codel state UNKNOWN group default qlen 1000
+    link/ether 02:77:6f:c7:f4:38 brd ff:ff:ff:ff:ff:ff
+    inet 29.219.23.160/7 brd 29.255.255.255 scope global zt0
+       valid_lft forever preferred_lft forever
+    inet6 fd80:56c2:e21c::199:9377:6fdb:16fa/88 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::77:6fff:fec7:f438/64 scope link 
+       valid_lft forever preferred_lft forever
+
+}}}
+
+
