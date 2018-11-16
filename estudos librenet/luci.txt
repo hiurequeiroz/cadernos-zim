@@ -5,15 +5,24 @@ Creation-Date: 2018-11-14T12:14:41-02:00
 ====== luci ======
 Created quarta 14 novembro 2018
 
-Abra a pagina da interface Luci do seu roteador o endereço [[thisnode.info]] como administrador, no final da página você encontra a opção administration:
+Este tutorial é para ajudar técnicos das redes comunitárias a ativar em seu roteador um sistema que librera o superte remoto. Basicamente esses passos váo te guiar a intalar dois pacotes em seu roteador, um para liberar uma linha decomando pela interface gráfica do seu roteador e outro um sistema que te conecta pela internet ao servidor Zerotier.
 
-{{./screenshot_2018-11-14-121857.png}}
+===== Primeiro passo: Acessar a Página do Roteador =====
 
-Insira o usuraio root e a respectiva senha.
+Abra o seu navegador preferido e digite o endereço [[thisnode.info.]]
 
-Vamos instalar dois módulos, um se chama "zerotier" e outro "luci-app-commands", para isso vá em System > Software
- 
+Nessa página você precisa entrar como administrador, para isso no final da página você encontra a opção administration:
+{{./pasted_image.png}}
+
+
+Insira o usuraio root e a respectiva senha, se ainda não tiver uma senha de ok e cadastre uma nova senha.
+
+Vamos a instalar dos módulos, uno se llama "zerotier" y otro "luci-app-commands", para eso vaya a System > Software
+
+Primeiro vai precisar atualizar as listas de software, então clique em "list updates" 
+
 Vai ter algo assim:
+
 {{./screenshot_2018-11-14-123614.png}}
 
 
@@ -21,7 +30,7 @@ Em "Download and install package" coloque "zerotier"
 
 {{./screenshot_2018-11-14-125050.png}}
 
-Em Download and install package coloque "luci-app-commands" e dê ok{{./screenshot_2018-11-14-123945.png}}
+Em "Download and install package" coloque "luci-app-commands" el ok{{./screenshot_2018-11-14-123945.png}}
 
 
 Terá a seguinte saida:

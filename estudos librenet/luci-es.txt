@@ -1,0 +1,68 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-14T12:14:41-02:00
+
+====== luci ======
+Created quarta 14 novembro 2018
+
+Este tutorial es para ayudar a los técnicos de las redes comunitarias a activar en su router un sistema que libera el superte remoto. Básicamente estos pasos te guiar a intalar dos paquetes en tu router, uno para liberar una línea descomandada por la interfaz gráfica de tu router y otro un sistema que te conecta por internet al servidor Zerotier.
+
+===== Primer paso: Acceder a la página del router =====
+
+Abra su navegador preferido y escriba la dirección [[thisnode.info]].
+
+En esta página usted necesita entrar como administrador, para eso al final de la página usted encuentra la opción administration:
+
+{{../luci/administration.png}}
+
+Introduzca el usuraio root y su contraseña, si aún no tiene una contraseña de ok y registre una nueva contraseña.
+
+===== Segundo paso: Actualización e Instalar paquetes =====
+
+Vamos a instalar dos módulos, uno se llama "zerotier" y otro "luci-app-commands", para eso vaya a System > Software
+
+En primer lugar usted necesita actualizar las listas de software, para ello haga clic en "list updates"
+
+Vá tener algo como:
+
+{{../luci/screenshot_2018-11-14-123614.png}}
+
+En "Download and install package" poner "luci-app-commands" de ok.
+{{../luci/screenshot_2018-11-14-123945.png}}
+
+Vá tener la seguinte salida:
+{{../luci/screenshot_2018-11-14-124023.png}}
+
+En "Download and install package" poner "zerotier", de ok e vá terner lá seguinte salida:
+
+{{../luci/screenshot_2018-11-14-125050.png}}
+
+===== tercer paso: creando el comando con luci-app-commands =====
+
+Actualice la página y aparecerá una nueva opción en la sección system> Custom Commands
+
+{{../luci/custom commands.png}}
+
+En la pestaña configure vaya en "add"
+
+{{../luci/screenshot_2018-11-14-124336.png}}
+
+A continuación, agregue el comando "cerotier-cli listnetworks" y haga clic en save and apply
+
+{{../luci/screenshot_2018-11-14-124544.png}}
+
+===== Cuarto paso: conectando la red zerotier =====
+
+En la pestaña "Dashboard" clique en "run"
+
+{{../luci/screenshot_2018-11-14-124738.png}}
+
+Si el resultado es algo así:
+
+{{../luci/screenshot_2018-11-14-125213.png}}
+
+pero no funcionó, el mensaje "REQUESTING_CONFIGURATION PRIVATE zt0" significa que aún no ha llegado a conectarse al servidor de cerotier. Espera un poco más hasta que obtenga un mensaje con la dirección IP, como ésta:
+
+{{../luci/ipzerotier.png}}
+
+Esta información debe informar a algún técnico que va a dar el respaldo remoto.
