@@ -9,18 +9,6 @@ A ideia é construir um sistema que vai redirecionar todos os pacotes dns de que
 
 Esse segundo dnsmasq vai responder todas as requisições dns com o mesmo endereço.
 
-Retirando o firewal
-para ver as tabelas
-{{{code: lang="sh" linenumbers="False"
-iptables -L -vn -t mangle
-}}}
-
-para remover o firewal
-{{{code: lang="sh" linenumbers="False"
-opkg remove firewall
-}}}
-
-
 ===== Criando um segundo dnsmasq =====
 
 Para ver onde estão as configurações do dnsmasq fizemos
@@ -67,6 +55,21 @@ port=53530
 
 
 ===== Adicionando as regras para sempre =====
+
+Temos que adicionar duas regras de iptables, a primeira vai ser via [[/etc/nodogsplash/nodogsplash.conf,]] na linha que aparece "FirewallRule allow udp port" e "FirewallRule allow tcp port" deves trocar de 53 para 53530, essa mudança fará que todo usuario não autenticado passe primeiro pelo gateway, na porta que está rodando o dnsmasq2:
+
+{{{code: lang="sh" linenumbers="False"
+  	FirewallRuleSet users-to-router {                                                                           
+ 	# Nodogsplash automatically allows tcp to GatewayPort,                                                     
+ 	# at GatewayAddress, to serve the splash page.                                                             
+ 	# However you may want to open up other ports, e.g.                                                        
+ 	# 53 for DNS and 67 for DHCP if the router itself is                                                       
+ 	# providing these services.              
+  	FirewallRule allow udp port 53530                                                                          
+    FirewallRule allow tcp port 53530                                         
+}}}
+
+
 
 Para adiniconar a regra temos que editar o [[/etc/rc.local]]  e deixar assim:
 
