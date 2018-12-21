@@ -5,9 +5,10 @@ Creation-Date: 2018-11-24T10:25:50-02:00
 ====== Home ======
 Created sábado 24 novembro 2018
 
-A ideia é construir um sistema que vai redirecionar todos os pacotes dns de quem não ta autenticado para um segundo dnsmasq.
+A ideia é construir um sistema (regras de iptables) que vai redirecionar todos os pacotes dns de quem não ta autenticado para um segundo dnsmasq.
 
 Esse segundo dnsmasq vai responder todas as requisições dns com o mesmo endereço.
+
 
 ===== Criando um segundo dnsmasq =====
 
@@ -41,7 +42,7 @@ vim /etc/dnsmasq2
 
 Nesse arquivo precisamos criar uma nova instancia de dnsmasq que só responda qualquer requisição para o mesmo caminho, em [1] vemos que para isso é preciso fazer algo como address=/#/1.2.3.4 onde 1.2.3.4 vai ser o endereço devolvido a qualquer requisição.
 Outra coisa é que essa instancia tem que rodar em uma porta diferente da padrão (53) então, como mostrado em [1] fizemos port=53530.
-O arquivo ficou assim
+O arquivo ficou assim:
 
 {{{code: lang="sh" linenumbers="False"
 # auto-generated config file from /etc/config/dhcp
@@ -71,7 +72,7 @@ Temos que adicionar duas regras de iptables, a primeira vai ser via [[/etc/nodog
 
 
 
-Para adiniconar a regra temos que editar o [[/etc/rc.local]]  e deixar assim:
+Para adiniconar as regras de iptables[3] temos que colocar dentro do arquivo  [[/etc/rc.loca]][[/etc/rc.local|l]] para que toda vez que reiniciar o router ele iniciar as regras. Dexe seu arquivo assim:
 
 {{{code: lang="sh" linenumbers="False"
 # the system init finished. By default this file does nothing.
@@ -89,3 +90,4 @@ Essas regras podem ser adicionadas na linha de comando, o problema é que toda v
 referencias
 [1] http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html
 [2] https://oldwiki.archive.openwrt.org/doc/howto/dhcp.dnsmasq
+[3] https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg

@@ -14,6 +14,12 @@ sudo apt install network-manager
 }}}
 
 
+para abrir as opções tive que usar:
+
+{{{code: lang="sh" linenumbers="False"
+nm-connection-editor
+}}}
+
 
 e fiz a seguintes configs
 {{../Captura de tela de 2018-11-13 09-39-26.png}}

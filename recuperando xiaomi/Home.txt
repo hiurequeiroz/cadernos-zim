@@ -1,0 +1,49 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-12-04T07:07:29-02:00
+
+====== Home ======
+Created terça 04 dezembro 2018
+
+Primeiro soldar os pinos nas entradas correspondentes
+
+Foto
+
+No roteador siga a seguinte combinação
+
+Black cable-----GND
+
+Green cable-----TXD
+
+White cable-----RXD
+
+Red cable ------- xxx (não precisa)
+
+Depois conectar o adaptador serial pl2303 no seu computador e ver em qual interface ele vai montar
+
+{{{code: lang="sh" linenumbers="False"
+sudo demesg
+...
+...
+...
+[  613.920708] usb 1-1.2: new full-speed USB device number 6 using ehci-pci
+[  614.030231] usb 1-1.2: New USB device found, idVendor=067b, idProduct=2303
+[  614.030236] usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[  614.030239] usb 1-1.2: Product: USB-Serial Controller
+[  614.030241] usb 1-1.2: Manufacturer: Prolific Technology Inc.
+[  614.043227] usbcore: registered new interface driver usbserial
+[  614.043243] usbcore: registered new interface driver usbserial_generic
+[  614.043257] usbserial: USB Serial support registered for generic
+[  614.044236] usbcore: registered new interface driver pl2303
+[  614.044252] usbserial: USB Serial support registered for pl2303
+[  614.044277] pl2303 1-1.2:1.0: pl2303 converter detected
+[  614.047141] usb 1-1.2: pl2303 converter now attached to ttyUSB0
+}}}
+
+Isso significa que o adaptador serial está trabalhando na interface [[/dev/ttyUSB0]]
+
+Assim vamos entrar no roteador através dele, para isso podemos usar vários comandos, mas o que eu preferi foi o minicon, primeiro para configurar e escolher porta e velocidade de comunicação:
+{{{code: lang="sh" linenumbers="False"
+sudo minicom -s
+}}}
+

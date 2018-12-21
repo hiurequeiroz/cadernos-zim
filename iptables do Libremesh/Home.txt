@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-30T09:49:09-02:00
+
+====== Home ======
+Created sexta 30 novembro 2018
+
+A ideia desse rascunho é compartilhar um pouco do que eu for descobindo sobre iptables e sua atuação no libremesh, ainda mais quando se quer utilizar o nodogsplash como administrador de um portal captive.
+
+O iptables é uma ferramenta utilizada para configurar filtros de um subsistema de processamento de pacotes de redes linux, que se chama netfilter[1].
+
+Para entender iptables temos que entender como a informação se movimenta pelas redes. No inicio da internet a dificuldade era fazer equipamentos de diferentes fabricantes pudessem conversar, ou seja, permitir a interoperabilidade entre eles. Para isso em 1983 nasceu o modelo OSI (Open Systems Interconnect), desenvolvido pela ISO (international Standards Organization) com o objetivo de facilitar a interconexão de sistemas de computadores. O modelo OSI é um framework para que a partir dele possam ser criados protocolos de comunicação de redes.
+
+Camadas
+Conceito de emcapsulamento -sempre acompanhada de um cabeçalho de dados
+	-cabeçaho
+	-dados
+
+[1] [[www.netfilter.org]]
